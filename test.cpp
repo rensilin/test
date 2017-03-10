@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-	cout<<"do something!QAQ";
+	cout<<"do something!";
 	return 0;
 }
 
