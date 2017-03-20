@@ -2,6 +2,6 @@
 
 int main()
 {
-	printf("hello kkke's git!(this is said by user)\n");
+	printf("hello user's git!\n");
 	return 0;
 }
