@@ -1,8 +1,13 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
 
 int main()
 {
-	printf("%d\n",rand());
+	extern char **environ;
+	for(int i=0;environ[i]!=NULL;i++)
+	{
+		printf("%s\n",environ[i]);
+	}
 	return 0;
 }
+

@@ -15,3 +15,4 @@ int main()
 	cout<<"cos(a)="<<cos(a)<<endl;
 	return 0;
 }
+
