@@ -1,5 +1,4 @@
 #include <stdio.h>
-//do something
 
 int main()
 {
