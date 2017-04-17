@@ -1,2 +1,5 @@
-a=1123891273891278716283716837162837162378
-print("a=%ld"%a)
+from PIL import Image
+im=Image.open("/media/kkke/文件/photo/IMG_20161013_002437_HDR.jpg")
+print(im.format,im.size,im.mode)
+im.thumbnail((2000,1000))
+im.save('thum.jpg','JPEG')
