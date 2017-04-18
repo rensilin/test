@@ -3,7 +3,7 @@
 #include <conio.h>                                     /********************/
 #include <time.h>
 #include <cstring>
-#include <cstdlib>
+#include <stdlib.h>
 
 #define MAXX 20
 #define MAXY 20
