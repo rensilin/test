@@ -1,14 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 //do something
 int main()
 {
-	extern char **environ;
-	for(int i=0;environ[i]!=NULL;i++)
+	int result=fork();
+	if(result==-1)
 	{
-		printf("%s\n",environ[i]);
+		perror("failed");
+		exit(0);
 	}
-	return 0;
+	else if (result==0)
+	{
+		printf("c1\n");
+		printf("c2");
+	}
+	else
+	{
+		printf("p1\n");
+		printf("p2");
+		exit(0);
+	}
 }
-
