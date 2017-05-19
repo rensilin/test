@@ -1,3 +1,3 @@
 #!/bin/bash
-
-touch $1
+read a b
+echo $((a+b))
