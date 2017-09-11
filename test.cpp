@@ -1,46 +1,23 @@
-#include <bits/stdc++.h>  
-using  namespace  std;  
-typedef long long ll;  
+//判线段与空间三角形相交,包括交于边界和(部分)包含 int
+intersect_in(line3 l,plane3 s){
+	return !same_side(l.a,l.b,s)&&!same_side(s.a,s.b,l.a,l.b,s.c)&&
+		!same_side(s.b,s.c,l.a,l.b,s.a)&&!same_side(s.c,s.a,l.a,l.b,s.b);
+}
 
-ll pow_mod(ll x, ll n, ll mod){  
-	ll res=1;  
-	while(n>0){  
-		if(n&1)res=res*x%mod;  
-		x=x*x%mod;  
-		n>>=1;  
-	}  
-	return res;  
-}  
+int intersect_in(point3 l1,point3 l2,point3 s1,point3 s2,point3 s3){
+	return !same_side(l1,l2,s1,s2,s3)&&!same_side(s1,s2,l1,l2,s3)&&
+		!same_side(s2,s3,l1,l2,s1)&&!same_side(s3,s1,l1,l2,s2);
+}
 
-int euler_phi(int n)  
-{  
-	int m=(int)sqrt(n+0.5);//n的素数范围在[1,sqrt(n)]之间  
-	int ret=n;//初始化返回值  
-	for(int i=2;i<=m;++i)if(!(n%i))//如果i是n的因子(可以保证是素因子)  
-	{  
-		ret=ret/i*(i-1);//计算结果  
-		while(!(n%i))n/=i;//将i作为因子把n“除尽”  
-	}  
-	if(n>1)ret=ret/n*(n-1);//n可能也是质数  
-	return ret;  
-}  
+//判线段与空间三角形相交,不包括交于边界和(部分)包含 int
+intersect_ex(line3 l,plane3 s){
+	return
+		opposite_side(l.a,l.b,s)&&opposite_side(s.a,s.b,l.a,l.b,s.c)&&
+		opposite_side(s.b,s.c,l.a,l.b,s.a)&&opposite_side(s.c,s.a,l.a,l.b,s.b);
+}
 
-ll f(int x){  
-	if(x==1)return 0;  
-	int phi=euler_phi(x);  
-	return pow_mod(2, f(phi)+phi, x);  
-}  
-
-int  main(){  
-	//  std::ios::sync_with_stdio(false);  
-	//  std::cin.tie(0);  
-
-	int T;  
-	scanf("%d",&T);  
-	while(T--){  
-		int p;  
-		scanf("%d",&p);  
-		printf("%lld\n",f(p));  
-	}  
-	return 0;  
-}  
+int intersect_ex(point3 l1,point3 l2,point3 s1,point3 s2,point3 s3){
+	return
+		opposite_side(l1,l2,s1,s2,s3)&&opposite_side(s1,s2,l1,l2,s3)&&
+		opposite_side(s2,s3,l1,l2,s1)&&opposite_side(s3,s1,l1,l2,s2);
+}

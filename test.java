@@ -1,9 +1,9 @@
-//this is made by kkke
-//not user
-public class test {
+import java.util.Scanner;
+
+public class Main{
 	public static void main(String args[])
 	{
-		System.out.println("hello java-vim!");
+		Scanner cin=new Scanner(System.in);
 	}
 };
 
