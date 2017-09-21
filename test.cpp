@@ -30,6 +30,15 @@ using namespace std;
 
 int main()
 {
+	for(long long i=10;i<=1000000000000LL;i*=10)
+	{
+		if(i%233==1)
+		{
+			printf("%lld",i);
+			break;
+		}
+		else cout<<i%233<<endl;
+	}
 	return 0;
 }
 
